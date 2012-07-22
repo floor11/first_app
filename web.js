@@ -1,18 +1,10 @@
 
-const crypto = require('crypto'),
-      fs = require("fs"),
-      http = require("http");
+const http = require("http");
 
 var pg = require('pg');
 var express = require('express');
 
-var privateKey = fs.readFileSync('privatekey.pem').toString();
-var certificate = fs.readFileSync('certificate.pem').toString();
-
-var credentials = crypto.createCredentials({key: privateKey, cert: certificate});
-
-var app = express.createServer({key: privateKey, cert: certificate});
-
+var app = express.createServer();
 
 var conString = "pg://cslbrviesfgsub:PUxL6311IxYvOYveJad-UQabj8@ec2-23-21-85-197.compute-1.amazonaws.com:5432/d8cdt1ga62ttei";
 
